@@ -1,4 +1,5 @@
 <template>
+<div>
 	<p>{{ comments.length }} {{ comments.length | pluralize 'comment' }}</p> <!-- We need a dom element inside the template for it to work -->
 
 	<div class="video-comment clearfix" v-if="$root.user.authenticated"> <!-- We passed in the user through the Auth fasade in app.blade.php -->
@@ -12,12 +13,12 @@
 		<!-- COMMENT -->
 		<li class="media" v-for="comment in comments">
 			<div class="media-left">
-				<a href="/channel/{{ comment.channel.data.slug }}">
-					<img v-bind:src="comment.channel.data.image" alt="{{ comment.channel.data.image }}" class="media-object">
+				<a :href="'/channel/' + comment.channel.data.slug">
+					<img v-bind:src="comment.channel.data.image" :alt="comment.channel.data.image" class="media-object">
 				</a>
 			</div>
 			<div class="media-body">
-				<a href="/channel/{{ comment.channel.data.slug }}">{{ comment.channel.data.name }}</a> {{ comment.created_at_human }}
+				<a :href="'/channel/' + comment.channel.data.slug">{{ comment.channel.data.name }}</a> {{ comment.created_at_human }}
 				<p>{{ comment.body }}</p>
 
 				<!-- REPLY TO COMMENT FORM --> 
@@ -42,12 +43,12 @@
 				<!-- REPLIES TO COMMENT -->
 				<div class="media" v-for="reply in comment.replies.data"> <!-- what if no replies, you cannot evaluate this -->
 					<div class="media-left">
-						<a href="/channel/{{ reply.channel.data.slug }}">
-							<img v-bind:src="reply.channel.data.image" alt="{{ reply.channel.data.image }}" class="media-object">
+						<a :href="'/channel/' + reply.channel.data.slug">
+							<img v-bind:src="reply.channel.data.image" :alt="reply.channel.data.image" class="media-object">
 						</a>
 					</div>
 					<div class="media-body">
-						<a href="/channel/{{ reply.channel.data.slug }}">{{ reply.channel.data.name }}</a> {{ reply.created_at_human }}
+						<a :href="'/channel/' + reply.channel.data.slug">{{ reply.channel.data.name }}</a> {{ reply.created_at_human }}
 						<p>{{ reply.body }}</p>
 
 						<ul class="list-inline" v-if="$root.user.authenticated">
@@ -64,6 +65,7 @@
 			</div>
 		</li>		
 	</ul>
+</div>
 </template>
 
 <script>

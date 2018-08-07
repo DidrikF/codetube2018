@@ -14,7 +14,7 @@ class SearchController extends Controller
     {
     	if(!$request->q) {
     		return back();
-            //return redirect('/home');
+            //return redirect('/livedemo/codetube');
     	}
 
     	$channels = Channel::search($request->q)->take(3)->get(); //search is part of the Searchable trait that we imported on the channel model

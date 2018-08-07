@@ -31,7 +31,8 @@ Vue.http.interceptors.push((request, next) => {
     next();
 });
 
-Vue.http.options.root = 'http://codetube.test'; //'http://didrikfleischer.com/livedemo/codetube';
+Vue.http.options.root = window.codetube.url;
+// Vue.http.options.root = 'http://codetube.test'; //'http://didrikfleischer.com/livedemo/codetube';
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
