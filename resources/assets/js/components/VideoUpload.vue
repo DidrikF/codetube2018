@@ -109,14 +109,16 @@
                         }*/
                     }).then(() => {
                         this.uploadingComplete = true;
-                    }).catch(() => {
+                    }).catch((error) => {
                         //If uploading the video failed: 
                         console.log('post to /upload failed')
+                        console.log(error)
                         this.failed = true;
                     });
-                }).catch(() => {
+                }).catch((error) => {
                     //If store() method fail:
-                    console.log('post to /store failed')
+                    console.log('post to /videos failed')
+                    console.log(error)
                     this.failed = true;
                 });
                 //store the metadata
@@ -136,8 +138,8 @@
 
                 }).then((response) => {
 
-                    console.log(response.json());
-                    this.uid = response.json().data.uid; //this id we can use subsequently to make changes to the uploaded video
+                    console.log(response);
+                    this.uid = response.data.uid; //this id we can use subsequently to make changes to the uploaded video
 
                 }); 
             },
