@@ -100,16 +100,16 @@
                             // Do whatever you want with the native progress event
                             console.log(progressEvent);
                         },
-
+                        /*
                         progress: (e) => {
                             if(e.lengthComputable) { //What does this do?
                                 //console.log(e.loaded + ' ' + e.total);
                                 this.updateProgress(e);
                             }
-                        }
+                        }*/
                     }).then(() => {
                         this.uploadingComplete = true;
-                    }, () => {
+                    }).catch(() => {
                         //If uploading the video failed: 
                         this.failed = true;
                     });
@@ -133,7 +133,7 @@
 
                 }).then((response) => {
 
-                    //console.log(response.json());
+                    console.log(response.json());
                     this.uid = response.json().data.uid; //this id we can use subsequently to make changes to the uploaded video
 
                 }); 
