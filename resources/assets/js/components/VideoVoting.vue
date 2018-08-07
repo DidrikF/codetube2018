@@ -28,10 +28,10 @@
 		methods: {
 			getVotes () {
 				axiosInstance.get('/videos/' + this.videoUid + '/votes').then((response) => {
-					this.up = response.json().data.up;
-					this.down = response.json().data.down;
-					this.userVote = response.json().data.user_vote;
-					this.canVote = response.json().data.can_vote;
+					this.up = response.data.up;
+					this.down = response.data.down;
+					this.userVote = response.data.user_vote;
+					this.canVote = response.data.can_vote;
 				});
 			},
 

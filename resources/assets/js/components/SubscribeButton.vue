@@ -26,9 +26,9 @@
 		methods: {
 			getSubscriptionStatus () {
 				axiosInstance.get('/subscription/' + this.channelSlug).then((response) => {
-					this.subscribers = response.json().data.count;
-					this.userSubscribed = response.json().data.user_subscribed;
-					this.canSubscribe = response.json().data.can_subscribe;
+					this.subscribers = response.data.count;
+					this.userSubscribed = response.data.user_subscribed;
+					this.canSubscribe = response.data.can_subscribe;
 				});
 			},
 
