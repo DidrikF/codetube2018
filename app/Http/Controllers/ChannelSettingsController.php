@@ -50,7 +50,7 @@ class ChannelSettingsController extends Controller
         //$path = storage_path() . '/uploads/' . $fileId;
         //echo File::delete($path);
         //echo Storage::disk('uploads')->delete($fileId);
-        return redirect()->to("/channel/{$channel->slug}/edit"); //redirect()->back() will redirect to the old slug, which does no longer exist.
+        return redirect()->to("/livedemo/codetube/channel/{$channel->slug}/edit"); //redirect()->back() will redirect to the old slug, which does no longer exist.
 
     }
 
