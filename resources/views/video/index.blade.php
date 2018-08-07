@@ -14,7 +14,7 @@
                             <div class="well"> <!-- Bootstrap container -->
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <a href="/videos/{{ $video->uid }}">
+                                        <a href="{{ config('app.url') . '/videos/' . $video->uid }}">
                                             <img src="{{ $video->getListedVideoThumbnail() }}" alt="{{ $video->title }} image" class="img-responsive">
                                         </a>
                                     </div>
@@ -31,8 +31,8 @@
                                                 </p>
 
 
-                                                <form action="/videos/{{ $video->uid }}" method="post">
-                                                    <a href="/videos/{{ $video->uid }}/edit" class="btn btn-default">Edit</a>
+                                                <form action="{{ config('app.url') . '/videos/' . $video->uid }}" method="post">
+                                                    <a href="{{ config('app.url') . '/videos/' . $video->uid }}/edit" class="btn btn-default">Edit</a>
 
                                                     <button type="submit" class="btn btn-danger">Delete</button>
 

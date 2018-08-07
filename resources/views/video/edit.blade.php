@@ -10,7 +10,7 @@
                 <div class="panel-body">
 
 
-                    <form action="/videos/{{ $video->uid }}" method="post">
+                    <form action="{{ config('app.url') . '/videos/' . $video->uid }}" method="post">
                         
                         <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                             <label for="title">Title</label>

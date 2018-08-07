@@ -43,6 +43,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{url('/js/app.js')}}"></script>
+    <script src="{{config('app.url') . '/js/app.js' }}"></script>
 </body>
 </html>

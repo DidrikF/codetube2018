@@ -9,7 +9,7 @@
 
                 <div class="panel-body">
                     
-                    <form action="/channel/{{ $channel->slug }}/edit" method="POST" enctype="multipart/form-data">
+                    <form action="config('app.url') . /channel/{{ $channel->slug }}/edit" method="POST" enctype="multipart/form-data">
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name">Name</label>
                             <input type="text" class="form-control" id="name" name="name" value="{{ old('name') ? old('name') : $channel->name }}">

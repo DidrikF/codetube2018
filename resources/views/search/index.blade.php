@@ -14,12 +14,12 @@
                             <div class="well">
                                 <div class="media">
                                     <div class="media-left">
-                                        <a href="/channel/{{ $channel->slug }}">
-                                            <img src="{{ $channel->getImage() }}" alt="{{ $channel->name }} image" class="media-object"> 
+                                        <a href="{{ config('app.url') . '/channel/' . $channel->slug }}">
+                                            <img src="{{ config('app.url') . $channel->getImage() }}" alt="{{ $channel->name }} image" class="media-object"> 
                                         </a>
                                     </div>
                                     <div class="media-body">
-                                        <a href="/channel/{{ $channel->slug }}" class="media-heading">{{ $channel->name }}</a>
+                                        <a href="{{ config('app.url') . '/channel/' . $channel->slug }}" class="media-heading">{{ $channel->name }}</a>
                                         <ul class="list-inline">
                                             <li>
                                                 <subscribe-button channel-slug="{{ $channel->slug }}"></subscribe-button>

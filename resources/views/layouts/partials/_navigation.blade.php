@@ -11,7 +11,7 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/home') }}">
+            <a class="navbar-brand" href="{{ config('app.url') . '/home' }}">
                 {{ config('app.name', 'Laravel') }}
             </a>
         </div>
@@ -22,7 +22,7 @@
             
             <!-- SEARCH BAR -->
 
-            <form action="/search" mathod="get" class="navbar-form navbar-left">
+            <form action="config('app.url') . /search" mathod="get" class="navbar-form navbar-left">
                 <div class="form-group">
                     <input type="text" name="q" class="form-control" placeholder="Search" value="{{ Request::get('q') }}">
                 </div>
@@ -39,11 +39,11 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
+                    <li><a href="{{ config('app.url') . '/login' }}">Login</a></li>
+                    <li><a href="{{ config('app.url') . '/register' }}">Register</a></li>
                 @else
-                    <li><a href="{{ url('/subscriptions') }}">Subscriptions</a></li>
-                    <li><a href="{{ url('/upload') }}">Upload</a></li>
+                    <li><a href="{{ config('app.url') . '/subscriptions' }}">Subscriptions</a></li>
+                    <li><a href="{{ config('app.url') . '/upload' }}">Upload</a></li>
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -53,12 +53,12 @@
                         <ul class="dropdown-menu" role="menu">
                             <li>
 
-                                <a href="{{ url('/videos/') }}">Your videos</a>
-                                <a href="{{ url('/channel/' . $channel->slug) }}">Your Channel</a>
-                                <a href="{{ url('/channel/' . $channel->slug . '/edit') }}">Channel Settings</a>
+                                <a href="{{ config('app.url') . '/videos/' }}">Your videos</a>
+                                <a href="{{ config('app.url') . '/channel/' . $channel->slug }}">Your Channel</a>
+                                <a href="{{ config('app.url') . '/channel/' . $channel->slug . '/edit' }}">Channel Settings</a>
 
 
-                                <a href="{{ url('/logout') }}"
+                                <a href="{{ config('app.url') . '/logout' }}"
                                     onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
                                     Logout
@@ -66,7 +66,7 @@
 
 
 
-                                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                <form id="logout-form" action="{{ config('app.url') . '/logout' }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
                             </li>
