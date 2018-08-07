@@ -1,0 +1,16 @@
+//Here we pull in and use scss to compile all our styles
+
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+// Variables
+@import "variables";
+
+//Components
+@import "components/video";
+
+//vendor
+@import "vendor/videojs";
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
