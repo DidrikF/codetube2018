@@ -108,7 +108,7 @@
 				}).then((response) => {
 					this.comments.map((comment, index) => {
 						if(comment.id === commentId) {
-							this.comments[index].replies.data.push(response.data); //pushing the response (comment reply data) on the comment
+							this.comments[index].replies.data.push(response.data.data); //pushing the response (comment reply data) on the comment
 							return; //kill the loop when after finding where to insert the reply
 						}
 					});
@@ -121,14 +121,14 @@
 				axiosInstance.post('/videos/' + this.videoUid + '/comments', {
 					body: this.body
 				}).then((response) => {
-					this.comments.unshift(response.data);
+					this.comments.unshift(response.data.data);
 					this.body = null;
 				});
 			},
 
 			getComments () {
 				axiosInstance.get('/videos/' + this.videoUid + '/comments').then((response) => {
-					this.comments = response.data;
+					this.comments = response.data.data;
 				});
 			},
 

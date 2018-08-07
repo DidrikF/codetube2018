@@ -43,13 +43,13 @@
 			subscribe () {
 				this.userSubscribed = true; //quick UI
 				this.subscribers++;
-				this.$http.post('/subscription/' + this.channelSlug);
+				axiosInstance.post('/subscription/' + this.channelSlug);
 			},
 
 			unsubscribe () {
 				this.userSubscribed = false;
 				this.subscribers--;
-				this.$http.delete('/subscription/' + this.channelSlug);
+				axiosInstance.delete('/subscription/' + this.channelSlug);
 			}
 		},
 
