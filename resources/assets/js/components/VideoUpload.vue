@@ -111,10 +111,12 @@
                         this.uploadingComplete = true;
                     }).catch(() => {
                         //If uploading the video failed: 
+                        console.log('post to /upload failed')
                         this.failed = true;
                     });
-                }, () => {
+                }).catch(() => {
                     //If store() method fail:
+                    console.log('post to /store failed')
                     this.failed = true;
                 });
                 //store the metadata
@@ -123,6 +125,7 @@
             },
 
             store() {
+                console.log('sending post to /videos to get uid')
                 //AJAX request
                 return axiosInstance.post('/videos', { //vue resource package (need to require it in app.js)
                     //Data we want to send through:
