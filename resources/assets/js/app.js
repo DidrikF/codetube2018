@@ -6,8 +6,12 @@
  */
 
 require('./bootstrap');
+import Vue from 'vue';
+import Vue2Filters from 'vue2-filters'
+ 
+Vue.use(Vue2Filters)
 
-var VueResource = require('vue-resource'); //needs to be the correct version!!!
+//var VueResource = require('vue-resource'); //needs to be the correct version!!!
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -17,16 +21,22 @@ var VueResource = require('vue-resource'); //needs to be the correct version!!!
  * and register our custom components
  */
 
-Vue.component('video-upload', require('./components/VideoUpload.vue'));
-Vue.component('video-player', require('./components/VideoPlayer.vue'));
-Vue.component('video-voting', require('./components/VideoVoting.vue'));
-Vue.component('video-comments', require('./components/VideoComments.vue'));
-Vue.component('subscribe-button', require('./components/SubscribeButton.vue'));
+import VideoUpload from './components/VideoUpload.vue';
+import VideoPlayer from './components/VideoPlayer.vue';
+import VideoVoting from './components/VideoVoting.vue';
+import VideoComments from './components/VideoComments.vue';
+import SubscribeButton from './components/SubscribeButton.vue';
 
 
-Vue.use(VueResource);
+Vue.component('video-upload', VideoUpload);
+Vue.component('video-player', VideoPlayer);
+Vue.component('video-voting', VideoVoting);
+Vue.component('video-comments', VideoComments);
+Vue.component('subscribe-button', SubscribeButton);
+
+
 
 const app = new Vue({
-    el: 'body',
+    el: '#app',
     data: window.codetube //Sharing data from app.blade.php (we make a dom element, that we pull into Vue, so that we can access and use the data)
 });

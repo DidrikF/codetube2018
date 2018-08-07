@@ -19,6 +19,7 @@
 
 <script>
 	import videojs from "video.js";
+	import axiosInstance from '../axiosInstance';
 	export default { // data being exported to the calling script, when require is called
 		data () {
 			return {
@@ -43,7 +44,7 @@
 			},
 
 			createView () {
-				this.$http.post('/videos/' + this.videoUid + '/views');
+				axiosInstance.post('/videos/' + this.videoUid + '/views');
 			}
 
 		},

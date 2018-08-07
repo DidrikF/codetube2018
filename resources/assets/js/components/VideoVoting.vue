@@ -14,7 +14,7 @@
 </template>
 
 <script>
-	
+	import axiosInstance from '../axiosInstance';
 	export default {
 		data () {
 			return {
@@ -27,7 +27,7 @@
 
 		methods: {
 			getVotes () {
-				this.$http.get('/videos/' + this.videoUid + '/votes').then((response) => {
+				axiosInstance.get('/videos/' + this.videoUid + '/votes').then((response) => {
 					this.up = response.json().data.up;
 					this.down = response.json().data.down;
 					this.userVote = response.json().data.user_vote;
@@ -56,11 +56,11 @@
 			},
 
 			deleteVote (type) {
-				this.$http.delete('/videos/' + this.videoUid + '/votes');
+				axiosInstance.delete('/videos/' + this.videoUid + '/votes');
 			},
 
 			createVote (type) {
-				this.$http.post('/videos/' + this.videoUid + '/votes', {
+				axiosInstance.post('/videos/' + this.videoUid + '/votes', {
 					type: type
 				});
 			}

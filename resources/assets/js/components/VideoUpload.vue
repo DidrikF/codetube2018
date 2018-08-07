@@ -59,6 +59,8 @@
 </template>
 
 <script>
+    import axiosInstance from '../axiosInstance';
+
     export default {
         //an object to hold data
         data() {
@@ -92,7 +94,13 @@
                     form.append('uid', this.uid);
 
                     //uploading video, and calling method to update progress bar (at this point we have gotten the uid from the server)
-                    this.$http.post('/upload', form, {
+                    axiosInstance.post('/upload', form, {
+                        
+                        onUploadProgress: function (progressEvent) {
+                            // Do whatever you want with the native progress event
+                            console.log(progressEvent);
+                        },
+
                         progress: (e) => {
                             if(e.lengthComputable) { //What does this do?
                                 //console.log(e.loaded + ' ' + e.total);
@@ -116,7 +124,7 @@
 
             store() {
                 //AJAX request
-                return this.$http.post('/videos', { //vue resource package (need to require it in app.js)
+                return axiosInstance.post('/videos', { //vue resource package (need to require it in app.js)
                     //Data we want to send through:
                     title: this.title,
                     description: this.description,
@@ -134,7 +142,7 @@
             update() {
                 this.saveStatus = 'Saving changes.';
 
-                return this.$http.put('/videos/' + this.uid, {
+                return axiosInstance.put('/videos/' + this.uid, {
                     title: this.title,
                     description: this.description,
                     visibility: this.visibility

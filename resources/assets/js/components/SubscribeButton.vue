@@ -8,6 +8,8 @@
 
 
 <script>
+	import axiosInstance from '../axiosInstance';
+
 	export default {
 		data () {
 			return {
@@ -23,7 +25,7 @@
 
 		methods: {
 			getSubscriptionStatus () {
-				this.$http.get('/subscription/' + this.channelSlug).then((response) => {
+				axiosInstance.get('/subscription/' + this.channelSlug).then((response) => {
 					this.subscribers = response.json().data.count;
 					this.userSubscribed = response.json().data.user_subscribed;
 					this.canSubscribe = response.json().data.can_subscribe;

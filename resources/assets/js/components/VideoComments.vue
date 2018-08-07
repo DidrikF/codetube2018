@@ -1,6 +1,6 @@
 <template>
 <div>
-	<p>{{ comments.length }} {{ comments.length | pluralize 'comment' }}</p> <!-- We need a dom element inside the template for it to work -->
+	<p>{{ comments.length }} {{ comments.length | pluralize('comment') }}</p> <!-- We need a dom element inside the template for it to work -->
 
 	<div class="video-comment clearfix" v-if="$root.user.authenticated"> <!-- We passed in the user through the Auth fasade in app.blade.php -->
 		<textarea placeholder="Say something" class="form-control video-comment__input" v-model="body"></textarea>
@@ -70,6 +70,9 @@
 
 <script>
 	
+	import axiosInstance from '../axiosInstance';
+
+
 	export default {
 
 		data () {
@@ -99,7 +102,7 @@
 			},
 
 			createReply(commentId) {
-				this.$http.post('/videos/' + this.videoUid + '/comments', {
+				axiosInstance.post('/videos/' + this.videoUid + '/comments', {
 					body: this.replyBody,
 					reply_id: commentId
 				}).then((response) => {
@@ -115,7 +118,7 @@
 			},
 
 			createComment() {
-				this.$http.post('/videos/' + this.videoUid + '/comments', {
+				axiosInstance.post('/videos/' + this.videoUid + '/comments', {
 					body: this.body
 				}).then((response) => {
 					this.comments.unshift(response.json().data);
@@ -124,7 +127,7 @@
 			},
 
 			getComments () {
-				this.$http.get('/videos/' + this.videoUid + '/comments').then((response) => {
+				axiosInstance.get('/videos/' + this.videoUid + '/comments').then((response) => {
 					this.comments = response.json().data;
 				});
 			},
@@ -135,7 +138,7 @@
 				}
 
 				this.deleteById(commentId); //what does this do 
-				this.$http.delete('/videos/' + this.videoUid + '/comments/' + commentId);
+				axiosInstance.delete('/videos/' + this.videoUid + '/comments/' + commentId);
 			},
 
 			//remove from the dom
