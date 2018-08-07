@@ -96,7 +96,7 @@
                     //uploading video, and calling method to update progress bar (at this point we have gotten the uid from the server)
                     axiosInstance.post('/upload', form, {
                         
-                        onUploadProgress: function (progressEvent) {
+                        onUploadProgress: (progressEvent) => {
                             // Do whatever you want with the native progress event
                             // console.log(progressEvent);
                             this.updateProgress(progressEvent);
@@ -140,7 +140,7 @@
                 }).then((response) => {
 
                     console.log(response);
-                    this.uid = response.data.uid; //this id we can use subsequently to make changes to the uploaded video
+                    this.uid = response.data.data.uid; //this id we can use subsequently to make changes to the uploaded video
 
                 }); 
             },
