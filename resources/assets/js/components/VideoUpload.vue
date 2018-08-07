@@ -92,13 +92,14 @@
                     form.append('video', this.file);
                     //uid passed from the response in the store() method
                     form.append('uid', this.uid);
-
+                    console.log(form)
                     //uploading video, and calling method to update progress bar (at this point we have gotten the uid from the server)
                     axiosInstance.post('/upload', form, {
                         
                         onUploadProgress: function (progressEvent) {
                             // Do whatever you want with the native progress event
-                            console.log(progressEvent);
+                            // console.log(progressEvent);
+                            this.updateProgress(progressEvent);
                         },
                         /*
                         progress: (e) => {
@@ -165,8 +166,7 @@
             },
 
             updateProgress (e) {
-                e.percent = (e.loaded / e.total) * 100;
-                this.fileProgress = e.percent; 
+                this.fileProgress = (e.loaded / e.total) * 100;; 
             }
 
         },
