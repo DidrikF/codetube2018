@@ -22,7 +22,7 @@
             
             <!-- SEARCH BAR -->
 
-            <form action="config('app.url') . /search" mathod="get" class="navbar-form navbar-left">
+            <form action="{{ config('app.url') . /search }}" mathod="get" class="navbar-form navbar-left">
                 <div class="form-group">
                     <input type="text" name="q" class="form-control" placeholder="Search" value="{{ Request::get('q') }}">
                 </div>

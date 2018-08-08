@@ -15,12 +15,12 @@
 
                             <!-- Is displayed while uploading the video -->
                             <div class="alert alert-info" v-if="!uploadingComplete">
-                                Your video will be available at <a :href="$root.url + '/videos/' + uid" target="_blank">{{ $root.url }}/videos/{{ uid }}</a>.
+                                Your video will be available at <a :href="window.codetube.baseUrl + '/videos/' + uid" target="_blank">{{ window.codetube.baseUrl }}/videos/{{ uid }}</a>.
                             </div>
 
                             <!-- Is displayed when the upload is completed successfully -->
                             <div class="alert alert-success" v-if="uploadingComplete">
-                                Upload complete. Video is now processing. <a href="/videos">Go to your videos</a>.
+                                Upload complete. Video is now processing. <a :href="window.codetube.baseUrl + '/videos'">Go to your videos</a>.
                             </div>
 
 

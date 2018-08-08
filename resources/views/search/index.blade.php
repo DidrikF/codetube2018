@@ -15,7 +15,7 @@
                                 <div class="media">
                                     <div class="media-left">
                                         <a href="{{ config('app.url') . '/channel/' . $channel->slug }}">
-                                            <img src="{{ config('app.url') . $channel->getImage() }}" alt="{{ $channel->name }} image" class="media-object"> 
+                                            <img src="{{ $channel->getImage() }}" alt="{{ $channel->name }} image" class="media-object"> 
                                         </a>
                                     </div>
                                     <div class="media-body">
