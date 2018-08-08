@@ -49,7 +49,7 @@
 
 		},
 
-		ready() {
+		mounted () {
 			this.player = videojs('video')
 
 			this.player.on('loadedmetadata', () => {

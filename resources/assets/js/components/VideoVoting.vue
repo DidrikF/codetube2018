@@ -70,7 +70,7 @@
 			videoUid: null
 		},
 
-		ready(){
+		mounted(){
 			this.getVotes();
 		}
 

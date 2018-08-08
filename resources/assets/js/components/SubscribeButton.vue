@@ -53,7 +53,7 @@
 			}
 		},
 
-		ready () {
+		mounted () {
 			this.getSubscriptionStatus();
 		}
 	}

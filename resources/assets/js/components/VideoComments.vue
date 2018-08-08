@@ -161,7 +161,7 @@
 		},
 
 
-		ready() {
+		mounted() {
 			this.getComments();
 		}
 
