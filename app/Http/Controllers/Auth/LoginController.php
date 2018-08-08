@@ -17,13 +17,13 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-
-    use AuthenticatesUsers;
+    
     /*
+    use AuthenticatesUsers;
+    */
     use AuthenticatesUsers {
         logout as performLogout;
     }
-    */
 
     /**
      * Where to redirect users after login.
@@ -42,13 +42,13 @@ class LoginController extends Controller
         $this->middleware('guest', ['except' => 'logout']);
     }
 
-    /*
+    
     public function logout(Request $request)
     {
         $this->performLogout($request);
         return redirect()->route('/');
     }
-    
+    /*
     public function logout(Request $request) {
         $this->guard()->logout();
 
