@@ -1,6 +1,6 @@
 <template>
 	<div  v-if="subscribers !== null"> <!-- class="subscribe-button" -->
-		{{ subscribers }} {{ subscribers | pluralize 'subscriber' }} &nbsp; 
+		{{ subscribers }} {{ subscribers | pluralize('subscriber') }} &nbsp; 
 		<button class="btn btn-xs btn-default" type="button" v-if="canSubscribe" @click.prevent="handle">{{ userSubscribed ? 'Unsubscribe' : 'Subscribe' }}</button>
 	</div>
 </template>

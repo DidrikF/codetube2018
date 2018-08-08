@@ -18,8 +18,8 @@
 	export default {
 		data () {
 			return {
-				up: null,
-				down: null,
+				up: 0,
+				down: 0,
 				userVote: null,
 				canVote: false
 			}
@@ -28,10 +28,10 @@
 		methods: {
 			getVotes () {
 				axiosInstance.get('/videos/' + this.videoUid + '/votes').then((response) => {
-					this.up = response.data.up;
-					this.down = response.data.down;
-					this.userVote = response.data.user_vote;
-					this.canVote = response.data.can_vote;
+					this.up = response.data.data.up ? response.data.data.up : 0;
+					this.down = response.data.data.down ? response.data.data.down : 0;
+					this.userVote = response.data.data.user_vote;
+					this.canVote = response.data.data.can_vote;
 				});
 			},
 
@@ -56,14 +56,19 @@
 			},
 
 			deleteVote (type) {
-				axiosInstance.delete('/videos/' + this.videoUid + '/votes');
+				axiosInstance.delete('/videos/' + this.videoUid + '/votes')
+					.catch(() => {
+						console.log('Users needs to be logged in to cast votes.')
+					});
 			},
 
 			createVote (type) {
 				axiosInstance.post('/videos/' + this.videoUid + '/votes', {
 					type: type
+				}).catch(() => {
+					console.log('Users needs to be logged in to cast votes.')
 				});
-			}
+			},
 		},
 
 		props: {
