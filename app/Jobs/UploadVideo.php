@@ -55,6 +55,7 @@ class UploadVideo implements ShouldQueue
         }
 
         //Because telestream trail is over
+        // DONT GET TO THIS POINT
         ($this->video)->processed = true;
         ($this->video)->save();
 
