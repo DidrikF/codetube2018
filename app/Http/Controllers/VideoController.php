@@ -57,8 +57,8 @@ class VideoController extends Controller
         if($request->ajax()) { //If it is an ajax request
         	return response()->json(null, 200);
         }
-
-        return redirect()->back(); //if not an ajax request
+				return response()->json(null, 200);
+        // return redirect()->back(); //if not an ajax request
 
 	}
     	
