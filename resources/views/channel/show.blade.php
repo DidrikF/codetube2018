@@ -11,7 +11,7 @@
                 <div class="panel-body">
                     <div class="media">
                         <div class="media-left">
-                            <img src="{{ config('app.url') . $channel->getImage() }}" alt="{{ $channel->name }} image" class="media-object">                           
+                            <img src="{{$channel->getImage() }}" alt="{{ $channel->name }} image" class="media-object">                           
                         </div>
                         <div class="media-body">
                             {{ $channel->name }}
