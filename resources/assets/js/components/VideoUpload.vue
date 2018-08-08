@@ -160,13 +160,13 @@
                         this.saveStatus = null
                     }, 3000)
 
-                }, () => {
+                }).catch(() => {
                     this.saveStatus = 'Failed to save changes.'; 
                 });
             },
 
             updateProgress (e) {
-                this.fileProgress = (e.loaded / e.total) * 100;; 
+                this.fileProgress = (e.loaded / e.total) * 100;
             }
 
         },
