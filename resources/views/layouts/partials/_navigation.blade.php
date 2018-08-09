@@ -38,6 +38,7 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
+                <li><a href="didrikfleischer.com">DidrikFleischer.com</a></li>
                 @if (Auth::guest())
                     <li><a href="{{ config('app.url') . '/login' }}">Login</a></li>
                     <li><a href="{{ config('app.url') . '/register' }}">Register</a></li>
