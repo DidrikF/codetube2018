@@ -2,11 +2,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
+                <div class="alert alert-info">The site requires that all uploaded videos are in mp4 format, with the exact file extention of ".mp4". Previously the app used Telestream to transcode videos of all formats to mp4, but the trial period has ended.</div>
                 <div class="panel panel-default">
                     <div class="panel-heading">Upload</div>
 
                     <div class="panel-body">
-                        <div class="alert alert-info">The site requires that all uploaded videos are in mp4 format, with the exact file extention of ".mp4". Previously the app used Telestream to transcode videos of all formats to mp4, but the trial period has ended.</div>
                         <input type="file" name="video" id="video" @change="fileInputChange" v-if="!uploading">
 
                         <div class="alert alert-danger" v-if="failed">Something went wrong. Please try again.</div>
